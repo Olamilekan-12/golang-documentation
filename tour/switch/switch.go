@@ -35,7 +35,15 @@ func checkHours() {
 
 }
 
+func def() {
+	defer fmt.Println("World")
+
+	fmt.Println("Hello")
+}
+
 func main() {
+	defer def()
+	defer fmt.Println("Hiii")
 	fmt.Print("Go runs on ")
 	switch os := runtime.GOOS; os {
 	case "darwin":
@@ -47,5 +55,6 @@ func main() {
 	}
 
 	checkDay()
+	checkHours()
 
 }
