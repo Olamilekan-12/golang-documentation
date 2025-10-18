@@ -27,8 +27,27 @@ func slicesThree() {
 	fmt.Println(newValues)
 }
 
+func slicesFour() {
+	q := []int{2, 3, 5, 7, 11, 13}
+	fmt.Println(q)
+
+	r := []bool{true, false, true, true, false, true}
+	fmt.Println(r)
+
+	s := []struct {
+		i int
+		k bool
+	}{
+		{1, true},
+		{2, false},
+	}
+
+	fmt.Println(s)
+}
+
 func main() {
 	slicesOne()
 	slicesTwo()
 	slicesThree()
+	slicesFour()
 }
