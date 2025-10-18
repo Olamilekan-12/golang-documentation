@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // func slicesOne() {
 // 	primes := [6]int{2, 3, 5, 7, 11, 13}
@@ -85,23 +88,41 @@ import "fmt"
 // 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 // }
 
-func printSlice(s string, x []int) {
-	fmt.Printf("%s len=%d cap=%d %v\n",
-		s, len(x), cap(x), x)
-}
+// func printSlice(s string, x []int) {
+// 	fmt.Printf("%s len=%d cap=%d %v\n",
+// 		s, len(x), cap(x), x)
+// }
 
-func sliceEight() {
-	a := make([]int, 5)
-	printSlice("a", a)
+// func sliceEight() {
+// 	a := make([]int, 5)
+// 	printSlice("a", a)
 
-	b := make([]int, 0, 5)
-	printSlice("b", b)
+// 	b := make([]int, 0, 5)
+// 	printSlice("b", b)
 
-	c := b[:2]
-	printSlice("c", c)
+// 	c := b[:2]
+// 	printSlice("c", c)
 
-	d := c[2:5]
-	printSlice("d", d)
+// 	d := c[2:5]
+// 	printSlice("d", d)
+// }
+
+func sliceNine() {
+	board := [][]string{
+		[]string{"-", "-", "-"},
+		[]string{"-", "-", "-"},
+		[]string{"-", "-", "-"},
+	}
+
+	board[0][0] = "X"
+	board[2][2] = "O"
+	board[1][2] = "X"
+	board[1][0] = "0"
+	board[0][2] = "X"
+
+	for i := 0; i < len(board); i++ {
+		fmt.Printf("%s\n", strings.Join(board[i], " "))
+	}
 }
 
 func main() {
@@ -112,5 +133,6 @@ func main() {
 	// slicesFive()
 	// sliceSix()
 	// sliceSeven()
-	sliceEight()
+	// sliceEight()
+	sliceNine()
 }
