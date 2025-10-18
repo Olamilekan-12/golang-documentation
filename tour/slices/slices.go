@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 // func slicesOne() {
@@ -107,22 +106,43 @@ import (
 // 	printSlice("d", d)
 // }
 
-func sliceNine() {
-	board := [][]string{
-		{"-", "-", "-"},
-		{"-", "-", "-"},
-		{"-", "-", "-"},
-	}
+// func sliceNine() {
+// 	board := [][]string{
+// 		{"-", "-", "-"},
+// 		{"-", "-", "-"},
+// 		{"-", "-", "-"},
+// 	}
 
-	board[0][0] = "X"
-	board[2][2] = "O"
-	board[1][2] = "X"
-	board[1][0] = "0"
-	board[0][2] = "X"
+// 	board[0][0] = "X"
+// 	board[2][2] = "O"
+// 	board[1][2] = "X"
+// 	board[1][0] = "0"
+// 	board[0][2] = "X"
 
-	for i := 0; i < len(board); i++ {
-		fmt.Printf("%s\n", strings.Join(board[i], " "))
-	}
+// 	for i := 0; i < len(board); i++ {
+// 		fmt.Printf("%s\n", strings.Join(board[i], " "))
+// 	}
+// }
+
+func sliceTen() {
+	var s []int
+	printSlice(s)
+
+	// append works on nil slices.
+	s = append(s, 0)
+	printSlice(s)
+
+	// The slice grows as needed.
+	s = append(s, 1)
+	printSlice(s)
+
+	// We can add more than one element at a time.
+	s = append(s, 2, 3, 4)
+	printSlice(s)
+}
+
+func printSlice(s []int) {
+	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
 
 func main() {
@@ -134,5 +154,6 @@ func main() {
 	// sliceSix()
 	// sliceSeven()
 	// sliceEight()
-	sliceNine()
+	// sliceNine()
+	sliceTen()
 }
