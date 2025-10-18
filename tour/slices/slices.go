@@ -2,64 +2,86 @@ package main
 
 import "fmt"
 
-func slicesOne() {
-	primes := [6]int{2, 3, 5, 7, 11, 13}
+// func slicesOne() {
+// 	primes := [6]int{2, 3, 5, 7, 11, 13}
 
-	var s []int = primes[1:4]
-	fmt.Println(s)
-}
+// 	var s []int = primes[1:4]
+// 	fmt.Println(s)
+// }
 
-func slicesTwo() {
-	var values []int
+// func slicesTwo() {
+// 	var values []int
 
-	for num := 0; num <= 10; num++ {
-		values = append(values, num)
-	}
-	fmt.Println(values)
-}
+// 	for num := 0; num <= 10; num++ {
+// 		values = append(values, num)
+// 	}
+// 	fmt.Println(values)
+// }
 
-func slicesThree() {
-	newValues := []int{
-		1, 2, 3, 4,
-	}
-	fmt.Println(newValues)
-	newValues[0] = 8
-	fmt.Println(newValues)
-}
+// func slicesThree() {
+// 	newValues := []int{
+// 		1, 2, 3, 4,
+// 	}
+// 	fmt.Println(newValues)
+// 	newValues[0] = 8
+// 	fmt.Println(newValues)
+// }
 
-func slicesFour() {
-	q := []int{2, 3, 5, 7, 11, 13}
-	fmt.Println(q)
+// func slicesFour() {
+// 	q := []int{2, 3, 5, 7, 11, 13}
+// 	fmt.Println(q)
 
-	r := []bool{true, false, true, true, false, true}
-	fmt.Println(r)
+// 	r := []bool{true, false, true, true, false, true}
+// 	fmt.Println(r)
 
-	s := []struct {
-		i int
-		k bool
-	}{
-		{1, true},
-		{2, false},
-	}
+// 	s := []struct {
+// 		i int
+// 		k bool
+// 	}{
+// 		{1, true},
+// 		{2, false},
+// 	}
 
-	fmt.Println(s)
-}
+// 	fmt.Println(s)
+// }
 
-func slicesFive() {
+// func slicesFive() {
+// 	s := []int{2, 3, 5, 7, 11, 13}
+// 	s = s[1:4]
+// 	fmt.Println(s)
+// 	s = s[:2]
+// 	fmt.Println(s)
+
+// 	s = s[1:]
+// 	fmt.Println(s)
+// }
+
+func sliceSix() {
 	s := []int{2, 3, 5, 7, 11, 13}
-	s = s[1:4]
-	fmt.Println(s)
-	s = s[:2]
-	fmt.Println(s)
+	printSlice(s)
 
-	s = s[1:]
-	fmt.Println(s)
+	// Slice the slice to give it zero length.
+	s = s[:0]
+	printSlice(s)
+
+	// Extend its length.
+	s = s[:4]
+	printSlice(s)
+
+	// Drop its first two values.
+	s = s[2:]
+	printSlice(s)
+}
+
+func printSlice(s []int) {
+	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
 
 func main() {
-	slicesOne()
-	slicesTwo()
-	slicesThree()
-	slicesFour()
-	slicesFive()
+	// slicesOne()
+	// slicesTwo()
+	// slicesThree()
+	// slicesFour()
+	// slicesFive()
+	sliceSix()
 }
